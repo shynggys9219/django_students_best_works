@@ -1,0 +1,267 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+<style type="text/css">
+            body{background-image:url(/static/grass.png)}
+
+        </style>
+
+<style type="text/css">
+              #img1 {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
+
+}
+  </style>
+
+<style type="text/css">
+              #img2 {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
+
+}
+  </style>
+
+<style type="text/css">
+              #img3 {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
+
+}
+  </style>
+<style type="text/css">
+              #img4 {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
+
+}
+  </style>
+<style type="text/css">
+              #img5 {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
+
+}
+  </style>
+<div class="container">
+  <div class="jumbotron" style="background-color:#1b0318; background-image:url(/static/road66.jpg); color:#CCCCCC;">
+
+
+<p>1<img id="img1" src="/static/image.gif"></p>
+
+<script type="text/javascript">
+var curPosX = 0;
+var curPosY = 0;
+var interval;
+var n = 10; // На сколько двигать за раз
+var width = document.documentElement.clientWidth; // Ширина экрана
+var height = document.documentElement.clientHeight; // Высота экрана
+var imgWidth = 100; // Ширина картинки
+var imgHeight = 100; // Высота картинки
+var img1 = document.getElementById("img1");
+
+function move() {
+
+if (curPosX  > {{death_distance1}} ){
+img1.src = '/static/image23.png';
+ img1 = 10;
+}
+if (curPosX != 1000){
+  img1.style.left = (curPosX += n) + "px";}
+else if ({{winner1}} == 1 && curPosX >= 1000 ){
+ img1.src = '/static/win.png';}
+  if ((curPosX == (width - imgWidth)) || (curPosY == (height - imgHeight))) {
+    clearInterval(interval);
+  }
+ if (curPosX >= 1000 && {{winner1}} == 0 ){
+  img1.src = '/static/stand.png';
+  }
+}
+interval = setInterval(move, {{speed1}});
+</script>
+
+
+<p>2<img id="img2" src="/static/image.gif"></p>
+
+
+<script type="text/javascript">
+var curPosX1 = 0;
+var curPosY1 = 0;
+var interval1;
+var n1 = 10; // На сколько двигать за раз
+var width1 = document.documentElement.clientWidth; // Ширина экрана
+var height1 = document.documentElement.clientHeight; // Высота экрана
+var imgWidth1 = 100; // Ширина картинки
+var imgHeight1 = 100; // Высота картинки
+var img2 = document.getElementById("img2");
+
+function movee() {
+if (curPosX1  > {{death_distance2}} ){
+img2.src = '/static/image23.png';
+ img2 = 10;
+}
+if (curPosX1 != 1000){
+  img2.style.left = (curPosX1 += n1) + "px";}
+  else if ({{winner2}} == 1 && curPosX1 >= 1000 ){
+ img2.src = '/static/win.png';
+ }
+
+  if ((curPosX1 == (width1 - imgWidth1)) || (curPosY1 == (height1 - imgHeight1))) {
+    clearInterval(interval1);
+  }
+
+  if (curPosX1 >= 1000 && {{winner2}} == 0 ){
+  img2.src = '/static/stand.png';
+  }
+
+}
+interval1 = setInterval(movee, {{speed2}});
+</script>
+
+
+
+
+<p>3<img id="img3" src="/static/image.gif"></p>
+
+
+<script type="text/javascript">
+var curPosX12 = 0;
+var curPosY12 = 0;
+var interval12;
+var n12 = 10; // На сколько двигать за раз
+var width12 = document.documentElement.clientWidth; // Ширина экрана
+var height12 = document.documentElement.clientHeight; // Высота экрана
+var imgWidth12 = 100; // Ширина картинки
+var imgHeight12= 100; // Высота картинки
+var img3 = document.getElementById("img3");
+
+function movee2() {
+if (curPosX12  > {{death_distance3}} ){
+img3.src = '/static/image23.png';
+ img3 = 10;
+}
+if (curPosX12 != 1000){
+  img3.style.left = (curPosX12 += n12) + "px";}
+else if ({{winner3}} == 1 && curPosX12 >= 1000 ){
+ img3.src = '/static/win.png';}
+  if ((curPosX12 == (width12- imgWidth12)) || (curPosY12 == (height12 - imgHeight12))) {
+    clearInterval(interval12);
+  }
+ if (curPosX12 >= 1000 && {{winner3}} == 0 ){
+  img3.src = '/static/stand.png';
+  }
+}
+interval12 = setInterval(movee2, {{speed3}});
+</script>
+
+
+
+<p>4<img id="img4" src="/static/image.gif"></p>
+
+
+<script type="text/javascript">
+var curPosX123 = 0;
+var curPosY123 = 0;
+var interval123;
+var n123 = 10; // На сколько двигать за раз
+var width123 = document.documentElement.clientWidth; // Ширина экрана
+var height123 = document.documentElement.clientHeight; // Высота экрана
+var imgWidth123 = 100; // Ширина картинки
+var imgHeight123= 100; // Высота картинки
+var img4 = document.getElementById("img4");
+
+function movee23() {
+if (curPosX123  > {{death_distance4}} ){
+img4.src = '/static/image23.png';
+ img4 = 10;
+}
+if (curPosX123 != 1000){
+  img4.style.left = (curPosX123 += n123) + "px";}
+else if ({{winner4}} == 1 && curPosX123 >= 1000 ){
+ img4.src = '/static/win.png';}
+  if ((curPosX123 == (width123- imgWidth123)) || (curPosY123 == (height123 - imgHeight123))) {
+    clearInterval(interval123);
+  }
+ if (curPosX123 >= 1000 && {{winner4}} == 0 ){
+  img4.src = '/static/stand.png';
+  }
+}
+interval123 = setInterval(movee23, {{speed4}});
+</script>
+
+
+<p>5<img id="img5" src="/static/image.gif"></p>
+
+
+<script type="text/javascript">
+var curPosX1234 = 0;
+var curPosY1234 = 0;
+var interval1234;
+var n1234 = 10; // На сколько двигать за раз
+var width1234 = document.documentElement.clientWidth; // Ширина экрана
+var height1234 = document.documentElement.clientHeight; // Высота экрана
+var imgWidth1234 = 100; // Ширина картинки
+var imgHeight1234= 100; // Высота картинки
+var img5 = document.getElementById("img5");
+
+function movee234() {
+if (curPosX1234  > {{death_distance5}} ){
+img5.src = '/static/image23.png';
+ img5 = 10;
+}
+if (curPosX1234 != 1000){
+  img5.style.left = (curPosX1234 += n1234) + "px";}
+else if ({{winner5}} == 1 && curPosX1234 >= 1000 ){
+ img5.src = '/static/win.png';}
+
+  if ((curPosX1234 == (width1234- imgWidth1234)) || (curPosY1234 == (height1234 - imgHeight1234))) {
+    clearInterval(interval1234);
+  }
+   if (curPosX1234 >= 1000 && {{winner5}} == 0  ){
+  img5.src = '/static/stand.png';
+  }
+}
+interval1234 = setInterval(movee234, {{speed5}});
+</script>
+
+
+
+
+      </div>
+
+<div class="jumbotron" style="background-color:green; background-image:url(/static/gg12.png);" >
+     <form enctype="multipart/form-data" method="POST" >
+          {% csrf_token %}
+
+
+
+
+
+
+
+    <font size="15"    color="white"> <h4 align="center"> <input type="submit" name="" value="Try again"  style = "background-color:#814200; border-radius:50px; border-color:#00540e; width:100px; height:50px;"> </h4>    </font>
+
+
+
+        </form>
+
+
+</div>
+
+</div>
+
+{% endblock %}

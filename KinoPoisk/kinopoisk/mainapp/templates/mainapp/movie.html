@@ -1,0 +1,260 @@
+{% extends 'mainapp/wrapper.html' %}
+{% load static %}
+{% block content %}
+<div id="wrapper">
+    <div id="movieTitle"><h2>{{ movie.movie_name }}</h2></div>
+    <div id="movieContent">
+        <div id="moviePhoto">
+            {% if movie.movie_image %}
+            <img src="{{ movie.movie_image.url }}" alt="Djoker" width="283px" height="390px">
+            {% else %}
+            <img src="{% static movie.movie_url_image %}" alt="Djoker" width="283px" height="390px">
+            {% endif %}
+        </div>
+        <div id="movieDescription"><p>{{ movie.movie_desctiption }}</p>
+            <p>
+                <strong>Название: </strong>{{ movie.movie_name }}<br>
+                <strong>Год выпуска: </strong><a href="#">{{movie.movie_date}}</a><br>
+                <strong>Страна: </strong>
+                {%for country in countries %}
+                <a href="#">{{country.country_name_russian}}</a>
+                {% endfor %}
+                <br>
+                <strong>Жанр: </strong>
+                {% for genre in genres %}
+                <a href="#">{{genre.genre_name}}</a>
+                {% endfor %}
+                <br>
+                <strong>Продолжительность: </strong>{{movie.movie_duration}} мин.<br>
+            </p>
+        </div>
+        <hr style="border: 1px solid #02a388; width: 100%; margin-top: 20px;">
+        <div id="movieCast">
+            <p>
+                <strong>Режиссер: </strong>{% for producer in producers %} <a href="{% url 'mainapp:movies_by_person' producer.id %}"> {{producer.person_name}} </a>,  {% endfor %}<br>
+                <strong>В ролях: </strong>{% for actor in actors %} <a href="{% url 'mainapp:movies_by_person' actor.id %}">{{ actor.person_name }} </a>, {% endfor %}<br>
+            </p>
+        </div>
+
+        <div id="movieTrailer">
+            <iframe width="770" height="400" src="{{ movie.movie_url_trailer }}" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+        </div>
+        <div class="block-stars">
+            <ul class="w3l-ratings">
+                {% for star in stars %}
+                {% if star == 2 %}
+                <li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+                {% elif star == 1 %}
+                <li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>
+                {% elif star == 0 %}
+                <li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    		<div>
+    			<form method="post" action="{% url 'mainapp:rate_movie' movie.id%}">
+    				{% csrf_token %}
+    				<input type="radio" name="new_rating" value="1">
+    				<input type="radio" name="new_rating" value="2">
+    				<input type="radio" name="new_rating" value="3">
+    				<input type="radio" name="new_rating" value="4">
+    				<input type="radio" name="new_rating" value="5">
+    				<input type="radio" name="new_rating" value="6">
+    				<input type="radio" name="new_rating" value="7">
+    				<input type="radio" name="new_rating" value="8">
+    				<input type="radio" name="new_rating" value="9">
+    				<input type="radio" name="new_rating" value="10">
+    				<input type="submit" value="Оценить">
+    			</form>
+    		</div>
+    <div class="addtofavorite">
+      {% if user %}
+        {% if favorite %}
+          <a class="addtofavoritebutton_added">Добавлено в любимые</a>
+        {% else %}
+          <a class="addtofavoritebutton">Добавить в любимые</a>
+        {% endif %}
+      {% endif %}
+    </div>
+  <div class="addtowl">
+    {% if user %}
+      {% if watchlater %}
+        <a class="deletefromwlbutton">Удалить из списка "Посмотреть позже"</a>
+      {% else %}
+        <a class="addtowlbutton">Посмотреть позже</a>
+      {% endif %}
+    {% endif %}
+  </div>
+    <script type="text/javascript">
+      $('.addtofavoritebutton').click(function(){
+        $.ajax(
+        {
+          type:"GET",
+          url: "{% url 'mainapp:add_to_favorite'%}",
+          data:{
+            movie_id: {{ movie.id }}
+          },
+          success: function( data )
+          {
+            $('.addtofavoritebutton').text('Добавлено в любимые');
+            $('.addtofavoritebutton').addClass('addtofavoritebutton_added').removeClass('addtofavoritebutton');
+          }
+        })
+      });
+      $('.addtowlbutton').click(function(){
+        $.ajax(
+        {
+          type:"GET",
+          url: "{% url 'mainapp:add_to_wl'%}",
+          data:{
+            movie_id: {{ movie.id }}
+          },
+          success: function( data )
+          {
+            $('.addtowlbutton').text('Удалить из списка "Посмотреть позже"');
+            $('.addtowlbutton').addClass('deletefromwlbutton').removeClass('addtowlbutton');
+          }
+        })
+      });
+      $('.deletefromwlbutton').click(function(){
+        $.ajax(
+        {
+          type:"GET",
+          url: "{% url 'mainapp:delete_from_wl'%}",
+          data:{
+            movie_id: {{ movie.id }}
+          },
+          success: function( data )
+          {
+            $('.deletefromwlbutton').text('Посмотреть позже');
+            $('.deletefromwlbutton').addClass('addtowlbutton').removeClass('deletefromwlbutton');
+          }
+        })
+      });
+    </script>
+        <div id="movieReview">
+            <hr style="border: 2px solid #02a388; width: 100%; margin-top: 40px; margin-bottom: 20px;">
+            {% if user %}
+            {% if user.user_status == 'banned' %}
+            <p style="color: red">Вы не можете комментировать. BAN</p>
+            {% else %}
+            <form action="{% url 'mainapp:post_comment' %}" method="POST" name="form1">
+                {% csrf_token %}
+                <p style="text-align: center;"><textarea name="comment_text" id="textarea" cols="100" rows="10"
+                                                         onfocus="this.value=''">Ваше сообщение...1) не менее 100 символов - будьте креативнее! 2)комменты не несущий смысловой нагрузки будут удаляться!</textarea>
+                </p>
+                <p id="buttons" style=" padding: 0;"><input type="submit" name="submit" value="Отправить"
+                                                            class="commentbutton"></p>
+                <input type="hidden" name="movie_id" value="{{movie.id}}"/>
+            </form>
+            {% endif %}
+            {% else %}
+            <p style="text-align: center">ЧТОБЫ ОСТАВИТЬ КОММЕНТАРИЙ ВАМ НУЖНО ВОЙТИ В СИСЕМУ ИЛИ ЗАРЕГИСТРИРОВАТЬСЯ</p>
+            {% endif %}
+        </div>
+        <hr>
+        <div class="">
+            {% if comments %}
+            <p><strong>Комментарии: </strong></p>
+            {% for comment in comments %}
+            <div style="padding-top: 50px; width: 90%; margin-right: auto; margin-left: auto">
+                <strong><a href="{% url 'mainapp:user' comment.comment_user.id %}">
+                    <span>
+                        [
+                        {% if comment.comment_user.user_score <= 5 %}
+			  	            <strong>Дитя </strong>
+			            {% elif comment.comment_user.user_score <= 10 %}
+				            <strong>Ученик </strong>
+			            {% elif comment.comment_user.user_score <= 15 %}
+				            <strong>Ниндзя </strong>
+			            {% elif comment.comment_user.user_score <= 20 %}
+				            <strong>Мастер </strong>
+			            {% else %}
+				            <strong>БОГ </strong>
+			            {% endif %}
+                        ]
+                    </span>{{ comment.comment_user.user_name }}</a></strong>
+                <p> > {{ comment.comment_description }}</p>
+                <p style="font-size: 10px; color: #ddd">Дата: {{comment.comment_date}}</p>
+                {% if user.user_role == 'admin' or comment.comment_user.id == user.id %}
+                <div>
+                    <form action="{% url 'mainapp:delete_comment' movie.id %}" style="color: red" method="POST"
+                          name="form2">
+                        {% csrf_token %}
+                        <input type="hidden" name='comment_id' value="{{ comment.id }}">
+                        <input type="submit" name="submit" value="DELETE COMMENT">
+                    </form>
+                </div>
+                {% endif %}
+
+                <div class="likes">
+                  <span id="likenumbers">Понравилось:
+                      {% if comment.comment_liked_users %}
+                        {{ comment.comment_liked_users.count }}
+                      {% else %}
+                        0
+                      {% endif %}
+                  </span>
+                  {% if user %}
+                    {% if user in comment.comment_liked_users.all %}
+                      <a class="likecommentbutton_liked" id="likecomment{{ comment.id }}" name="{{ comment.id }}">Нравится</a>
+                    {% else %}
+                      <a class="likecommentbutton" id="likecomment{{ comment.id }}" name="{{ comment.id }}">Нравится</a>
+                    {% endif %}
+                  {% endif %}
+                </div>
+                <hr>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div><p style="text-align: center">Пока этот фильм никто не комментировал. Будьте первым</p></div>
+            {% endif %}
+            <script type="text/javascript">
+              $('.likecommentbutton').click(function(){
+                var comm_id = $(this).attr("name");
+                $.ajax(
+                {
+                  type:"GET",
+                  url: "{% url 'mainapp:like_comment'%}",
+                  data:{
+                    comment_id: comm_id
+                  },
+                  success: function( data )
+                  {
+                    $('#likecomment'+comm_id).addClass('likecommentbutton_liked').removeClass('likecommentbutton');
+                  }
+                })
+              });
+                $('.likecommentbutton_liked').click(function(){
+                  var comm_id = $(this).attr("name");
+                  $.ajax(
+                  {
+                    type:"GET",
+                    url: "{% url 'mainapp:delete_like_comment'%}",
+                    data:{
+                      comment_id: comm_id
+                    },
+                    success: function( data )
+                    {
+                      $('#likecomment'+comm_id).addClass('likecommentbutton').removeClass('likecommentbutton_liked');
+                    }
+                  })
+                });
+            </script>
+        </div>
+    </div>
+</div>
+<div>
+
+</div>
+<!--//requested-movies-->
+
+<!--//tab-section-->
+
+<!--//content-inner-section-->
+
+<!--/footer-bottom-->
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'myFirstApp/index.html' %}
+
+
+
+{% block body_block %}
+<br><br><br><br><br>
+
+
+{% comment %} {% if user.id != None %}
+<div class="container">
+    <div class ="row justify-content-md-center">
+        <form class="" action="" method="post">
+
+            {% csrf_token %}
+            <input name = "title" type="hidden" name="username" value="{{user.username}}">
+            
+            <textarea name="text" rows="9" cols="100" placeholder="Input your code here " onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}"></textarea>
+            <input type="hidden" name="username" value="{{user.username}}">
+            <br>
+            <div class ="row justify-content-md-center">
+            <br><br><input type="submit" name="" value="Send Code">
+            </div>
+        </form>
+    </div>
+</div>
+{% endif %} {% endcomment %}
+
+
+<div class="container">
+<h4>Title</h4>
+<p>Be specific and imagine you're asking a question to another person</p>
+
+<form class="" action="{% url 'addQuestion' %}" method="post">
+{% csrf_token %}
+<input name = "title" class="input-group mb-3" type="text" class="form-control" placeholder="e.g is there an R function for finding the index of an element in a vector" aria-label="Username" aria-describedby="basic-addon1">
+ 
+<br>
+<h4>Body</h4>
+
+<textarea name = "text" class="form-control" rows="8" ></textarea>
+<input type="hidden" name="username" value="{{user.username}}">
+
+<div class ="row justify-content-md-center">
+  <br><br><input class="btn btn-primary btn-lg" type="submit" name="" value="Send Code">
+</div>
+
+</form>
+</div>
+
+
+
+
+<br><br><br><br><br><br><br><br>
+{% endblock  %}

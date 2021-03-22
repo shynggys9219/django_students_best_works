@@ -1,0 +1,45 @@
+
+{% extends 'myFirstApp/index.html' %}
+
+
+{% block body_block %}
+
+<br><br>
+<br>
+<br>
+<br>
+
+
+<div class="container">
+  <div class="row centered">
+
+
+<table class="table table-striped" width="90%" >
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Solved Tasks</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  {% for k, v in dicScore %}
+    <tr>
+      <th scope="row">{{forloop.counter }}</th>
+      <td>{{ k }}</td>
+      <td>{{v.0}}</td>
+      <td>{{v.1}}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+{% endblock body_block %}
+    

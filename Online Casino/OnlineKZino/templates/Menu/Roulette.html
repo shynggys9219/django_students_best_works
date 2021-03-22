@@ -1,0 +1,102 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+<style>
+            body{background-image:url(/static/images.jpg)
+            }
+
+        </style>
+<style>
+p{
+font: 70px Tahoma;
+color: orange;
+text-shadow: #000 2px 0px 2px, #000 0px 2px 2px, #000 0px -2px 2px, #000 -2px 0px 2px;}
+
+</style>
+
+<div class="container">
+  <div class="jumbotron" style="background-color:#1b0318; background-image:url(/static/2.jpg); color:#CCCCCC;">
+
+<audio src="punch.mp3" autoplay="autoplay"></audio>
+
+
+    <h4 align = "center"><img src="/static/roulette.png/ "  width="500" height="500" /></h4>
+
+    <form enctype="multipart/form-data" method="POST" >
+
+ {% csrf_token %}
+
+
+ {% csrf_token %}
+     <font size="15"    color="White">
+     <h4>ᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠᅠ
+         <input type="submit" name="0" value="0" style = "background-color:#228B22; border-radius:90px; border-color:#FFFFFF; width:200px; height:50px; " >
+         <br>
+         <input type="submit" name="3" value="3" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; " >
+         <input type="submit" name="6" value="6" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="9" value="9" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="12" value="12" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="15" value="15" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="18" value="18" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="21" value="21" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="24" value="24" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; " >
+         <input type="submit" name="27" value="27" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="30" value="30" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="33" value="33" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="36" value="36" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="3-36" value="3rd row" style = "background-color:#228B22; border-radius:10px; border-color:#FFFFFF; width:100px; height:50px; ">
+         <br>
+         <input type="submit" name="2" value="2" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; " >
+         <input type="submit" name="5" value="5" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="8" value="8" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="11" value="11" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="14" value="14" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="17" value="17" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="20" value="20" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="23" value="23" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; " >
+         <input type="submit" name="26" value="26" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="29" value="29" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="32" value="32" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="35" value="35" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="2-35" value="2nd row" style = "background-color:#228B22; border-radius:10px; border-color:#FFFFFF; width:100px; height:50px; ">
+         <br>
+         <input type="submit" name="1" value="1" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; " >
+         <input type="submit" name="4" value="4" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="7" value="7" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="10" value="10" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="13" value="13" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="16" value="16" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="19" value="19" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="22" value="22" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; " >
+         <input type="submit" name="25" value="25" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="28" value="28" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="31" value="31" style = "background-color:#000000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="34" value="34" style = "background-color:#FF0000; border-radius:90px; border-color:#FFFFFF; width:70px; height:50px; ">
+         <input type="submit" name="1-34" value="1st row" style = "background-color:#228B22; border-radius:10px; border-color:#FFFFFF; width:100px; height:50px; ">
+         <br>
+         <input type="submit" name="1st" value="1st 12" style = "background-color:#228B22; border-radius:10px; border-color:#FFFFFF; width:290px; height:50px; ">
+         <input type="submit" name="2nd" value="2nd 12" style = "background-color:#228B22; border-radius:10px; border-color:#FFFFFF; width:300px; height:50px; ">
+         <input type="submit" name="3rd" value="3rd 12" style = "background-color:#228B22; border-radius:10px; border-color:#FFFFFF; width:300px; height:50px; ">
+         <br>
+         <input type="submit" name="1-18" value="1-18" style = "background-color:#228B22; border-radius:10px; border-color:#FFFFFF; width:140px; height:50px; ">
+         <input type="submit" name="even" value="EVEN" style = "background-color:#228B22; border-radius:10px; border-color:#FFFFFF; width:140px; height:50px; ">ᅠ
+         <input type="submit" name="red" value="RED" style = "background-color:#FF0000; border-radius:10px; border-color:#FFFFFF; width:140px; height:50px; ">
+         <input type="submit" name="black" value="BLACK" style = "background-color:#000000; border-radius:10px; border-color:#FFFFFF; width:130px; height:50px; ">ᅠ
+         <input type="submit" name="odd" value="ODD" style = "background-color:#228B22; border-radius:10px; border-color:#FFFFFF; width:140px; height:50px; ">
+         <input type="submit" name="19-36" value="19-36" style = "background-color:#228B22; border-radius:10px; border-color:#FFFFFF; width:140px; height:50px; ">
+     </h4>
+
+         <br>
+         <h4 align="center">
+             <input type="submit" name="clear" value="CLEAR" style = "background-color:#8600ac; border-radius:50px; border-color:#ac00dd; width:200px; height:50px;" >
+             <input type="submit" name="spin" value="SPIN" style = "background-color:#8600ac; border-radius:50px; border-color:#ac00dd; width:200px; height:50px;">
+             <input type="submit" name="double" value="DOUBLE" style = "background-color:#8600ac; border-radius:50px; border-color:#ac00dd; width:200px; height:50px;">
+         </h4>
+     </font>
+        </form>
+
+   <p align="center">  {{message}} </p>
+
+
+  </div>
+</div>
+{% endblock %}

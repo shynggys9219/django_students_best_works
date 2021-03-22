@@ -1,0 +1,35 @@
+{% extends "Menu/base.html" %}
+
+{% block body_block %}
+<style>
+   .border {
+    border: 5px solid #00af64;
+   }
+  </style>
+  <div class="container">
+
+    <div class="jumbotron " style="background-color:#1b0318; color:#CCCCCC;">
+ <font size="6" >
+
+     {% if user.profile_pic %}
+      <img src="{{user.profile_pic.url}} " width="200" height="211" class="border" />
+
+     {% endif %}
+         <li>Username: {{user.username}}</li>
+        <li>First name: {{user.first_name}}</li>
+        <li>Last name: {{user.last_name}}</li>
+        <li>Email: {{user.email}}</li>
+        <li>Balance: {{user.initial_balance}} points</li>
+
+
+ <a href="{% url 'Menu:Settings' %}"> <img src="/static/sett.png/ "  width="60" height="60" />  </a><font size="6" color="yellow" >Settings</font>
+
+
+
+ </font>
+
+
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'myFirstApp/index.html' %}
+
+{% block body_block %}
+<br><br><br>
+ <style>
+   .round {
+    border-radius: 100px;
+    box-shadow: 0 0 7px #666;
+   }
+   </style>
+    <br><br>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-10"><h1>Top question </h1></div>
+            {% if user.id != None %}<div class="col-6 col-md-2"><a href = {% url 'ask' %}><button type="button" class="btn btn-dark">Ask question</button></a></div>{% endif %}
+        </div>
+    </div>
+   
+<br>
+
+<div class = "container">
+   <table  class="table table-borderless table-dark table-hover">
+
+        {% for i , j in dic.items %}
+        <tr>
+            <td>
+        <div class="row">
+            <div class="col col-sm-1">
+                <h5>{{j.0}}</h5>
+                <p>answers</p>
+            </div>
+
+            <div class="col col-sm-1">
+                <h5>{{i.clicks}}</h5>
+                <p>views</p>
+            </div>
+
+            <div class="col-12 col-md-8"><font  size ="5" face="Arial"><a href = {%url 'question' i.id%}>{{i.title}}</a></font>
+                <div class="d-flex flex-row-reverse">
+                    {{i.user.username}}
+                    <p><img src="{{ i.user.avatar.url }}" width="25" height="25" alt="" class="round"></p>
+                </div>
+            </div>
+        </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

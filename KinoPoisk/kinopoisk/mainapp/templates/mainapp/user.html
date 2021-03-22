@@ -1,0 +1,132 @@
+{% extends 'mainapp/wrapper.html' %}
+				<!-- //Modal1 -->
+			<!--/content-inner-section-->
+{% load static %}
+{% block content %}
+
+      <div id="wrapper">
+        <div id="movieTitle"><h2>Пользователь: {{ userx.user_login }}</h2></div>
+        <div id="movieContent">
+			{% if userx.user_image %}
+			<div id="moviePhoto"><img src="{{userx.user_image.url}}" alt="Djoker" width="283px"  style="padding: 20px;"></div>
+			{% else %}
+          	<div id="moviePhoto"><img src="{% static userx.user_url_image %}" alt="Djoker" width="283px" height="390px"></div>
+			{% endif %}
+			<form method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				{{ form.as_p }}
+				<input type="submit" value="upload">
+			</form>
+          <p>
+            <strong>Имя: </strong>{{ userx.user_name }}<br>
+            <strong>Фамилия: </strong><a href="#">{{userx.user_surname}}</a><br>
+			  {% if counter <= 5 %}
+			  	<strong>Дитя</strong><br>
+			  {% elif counter <= 10 %}
+				<strong>Ученик</strong><br>
+			  {% elif counter <= 15 %}
+				<strong>Ниндзя</strong><br>
+			  {% elif counter <= 20 %}
+				<strong>Мастер</strong><br>
+			  {% else %}
+				<strong>БОГ</strong><br>
+			  {% endif %}
+			 <strong>Очки: </strong> {{counter}}<br>
+            <strong style='color:green'>{{userx.user_role}}</strong>
+          </p>
+          </div>
+          <div>
+
+			{% if user %}
+			  {% if user.user_role == 'admin' %}
+					<p class="reports">Жалобы: <span>{{ reports.count }}</span> </p>
+					{% if userx.user_status == 'banned' %}
+								<strong style='color:red'>ЗАБАНЕН</strong>
+		            <form class="" action="{% url 'mainapp:ban_user' userx.id %}" method="post">
+									{% csrf_token %}
+		              <input type="hidden" name="notbanuser" value="{{ userx.id }}">
+		              <input type="submit" value="Разбанить" style="background: red; color: white; border: none; padding: 10px;">
+								</form>
+					{% else %}
+	            <form class="" action="{% url 'mainapp:ban_user' userx.id %}" method="post" style="margin: 20px">
+								{% csrf_token %}
+	              <input type="hidden" name="banuser" value="{{ userx.id }}">
+	              <input type="submit" value="Забанить" style="background: red; color: white; border: none; padding: 10px;">
+							</form>
+					{% endif %}
+			  	<a href="{% url 'mainapp:add_new_movie' %}"> Добавить новый фильм </a><br>
+                <a href="{% url 'mainapp:add_new_category' %}"> Добавить новую категорию </a>
+			  {% endif %}
+			  {% if userx != user %}
+					{% if reported %}
+						<p style='color: red'>Вы уже пожаловались на этого пользователя</p>
+					{% else %}
+						<a class="reportuser" id="report" name="{{ userx.id }}">Пожаловаться</a>
+						<p id='reportmessage'></p>
+					{% endif %}
+				{% endif %}
+			{% endif %}
+          </div>
+	        <hr style="border: 1px solid #02a388; width: 100%; margin-top: 20px;">
+					<div class="favoritemovies">
+						{% if favorites %}
+							<h2>Любимые фильмы:</h2>
+							<div>
+							{% for f in favorites %}
+								<p><a href="{% url 'mainapp:movie' f.favorite_movie.id %}"> {{ f.favorite_movie.movie_name }} </a></p>
+							{% endfor %}
+							</div>
+						{% else %}
+							<p>У пользователя нет любимых фильмов</p>
+						{% endif %}
+					</div>
+					{% if user %}
+						{% if user == userx %}
+							{% if watchlater %}
+								<div class="wllist">
+										<h2>Посмотреть позже </h2>
+										<div>
+										{% for wl in watchlater %}
+											<p><a href="{% url 'mainapp:movie' wl.wl_movie.id %}"> {{ wl.wl_movie.movie_name }} <span>( {{ wl.wl_movie.movie_date }} )</span> </a></p>
+										{% endfor %}
+										</div>
+								</div>
+							{% endif %}
+							<div class="recommends">
+								{% if recommends %}
+									<h2>КиноПоиск рекомендует: </h2>
+									<div>
+									{% for r in recommends %}
+										<p><a href="{% url 'mainapp:movie' r.id %}"> {{ r.movie_name }} <span>( {{ r.movie_date }} )</span> </a></p>
+									{% endfor %}
+									</div>
+								{% else %}
+									<h2> Рекомендации нет. </h2>
+								{% endif %}
+							</div>
+						{% endif %}
+					{% endif %}
+
+		  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		  <script type="text/javascript">
+			$('.reportuser').click(function(){
+			  var userid = $(this).attr("name");
+			  $.ajax(
+			  {
+				type:"GET",
+				url: "{% url 'mainapp:report_user'%}",
+				data:{
+				  user_id: userid
+				},
+				success: function( data )
+				{
+				  $('#report').css('visibility', 'hidden')
+					$('#reportmessage').text('Ваша жалоба отправлена, и будет рассмотрена администраторами сайта')
+				}
+
+			  })
+			});
+		  </script>
+        </div>
+      </div>
+{% endblock %}

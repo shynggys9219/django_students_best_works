@@ -1,0 +1,258 @@
+#wrapper {
+    width: 1000px;
+    min-height: 500px;
+    //outline: 1px solid red;
+    padding: 1px 10px;
+    margin: 25px auto;
+    color: black;
+}
+#movieTitle {
+	width: 800px;
+	height: 30px;
+	//outline: 1px solid green;
+    padding-top: 10px;
+	margin-left: 10px;
+  margin-bottom: 20px;
+	//padding: 0px 20px;
+  font-family: Arial;
+  font-size: 25px;
+
+}
+#movieContent {
+	width: 100%;
+	//height: 950px;
+	//outline: 1px solid green;
+	padding: 0 1px;
+}
+#moviePhoto {
+	width: 283px;
+	min-height: 390px;
+	//outline: 1px solid black;
+	float: left;
+}
+#movieDescription {
+	width: 712px;
+	//height: 390px;
+	//outline: 1px solid yellow;
+	margin-left: 285px;
+	padding: 10px;
+  font-family: Courier;
+  font-size: 18px;
+}
+#movieCast {
+	width: 100%;
+	min-height: 120px;
+	//outline: 1px solid black;
+  font-family: Courier;
+  font-size: 18px;
+}
+#movieTrailer {
+	width: 100%;
+	min-height: 400px;
+	//outline: 1px solid blue;
+	padding-left: 15px;
+  text-align: center;
+}
+#movieReview {
+	width: 100%;
+	min-height: 280px;
+	//outline: 1px solid purple;
+}
+#desc {
+	line-height: 15px;
+	//outline: 1px solid red;
+	margin-bottom: 1px;
+}
+#buttons {
+	margin-left: 35px;
+}
+p {
+	font-size: 0.9em;
+	padding: 1em 0.7em;
+	position: relative;
+    font-weight: 400;
+    //text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+}
+h2 {
+	font-size: 0.9em;
+	//padding: 1em 0.7em;
+	//position: relative;
+    font-weight: 600;
+  //  text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+}
+textarea {
+  width: 100%;
+	font-size: 16px;
+	padding: 1em 0.7em;
+	position: relative;
+  resize: none;
+  font-weight: 400;
+  //  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  background-color: #efefef;
+  color: #444;
+  border-radius: 7px;
+}
+a {
+  color:black;
+	text-decoration: none;
+}
+a:hover {
+	color: #02a388;
+}
+.commentbutton{
+  color: #02a388;
+  padding: 5px 10px;
+  background: white;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #02a388;
+  border-radius: 2px;
+}
+.commentbutton:hover{
+  color: black;
+  background: #02a388;
+}
+.likes{
+  margin-top: 20px;
+}
+.likecommentbutton{
+  font-family: 'Franklin Gothic Medium';
+  border: 2px solid #888;
+  color: #888;
+  font-size
+  border-radius: 2px;
+  padding: 5px;
+  cursor: pointer;
+
+}
+.likecommentbutton:hover{
+  border-color: #02a388;
+  color: #02a388;
+}
+#likenumbers{
+  font-family: 'Franklin Gothic Medium';
+  margin: 10px;
+}
+.likecommentbutton_liked{
+  font-family: 'Franklin Gothic Medium';
+  border: 2px solid #02a388;
+  color: white;
+  background: #02a388;
+  font-size
+  border-radius: 2px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.ban_button{
+  padding: 10px 5px;
+  background: red;
+}
+.reports{
+  color: black;
+}
+.reportuser{
+  padding: 5px 10px;
+  background: red;
+  cursor: pointer;
+  margin-top: 80px;
+}
+.addtofavorite{
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.addtofavoritebutton{
+  cursor: pointer;
+  background: #02a388;
+  padding: 10px;
+}
+.addtofavoritebutton:hover{
+  color: white;
+}
+.addtofavoritebutton_added{
+  background: #777;
+  padding: 10px;
+}
+.addtofavoritebutton_added:hover{
+  color: black;
+}
+.favoritemovies{
+  margin: 20px;
+  border: 2px solid silver;
+  padding: 10px;
+}
+.favoritemovies h2{
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #02a388;
+}
+.favoritemovies div{
+  margin-left: 50px;
+}
+.favoritemovies div a{
+  font-weight: bold;
+  font-size: 16px;
+}
+.recommends{
+  margin: 20px;
+  border: 2px solid silver;
+  padding: 10px;
+}
+.recommends h2{
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #02a388;
+}
+.recommends div{
+  margin-left: 50px;
+}
+.recommends div a{
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.addtowl{
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.addtowlbutton{
+  cursor: pointer;
+  background: #02a388;
+  padding: 10px;
+}
+.addtowlbutton:hover{
+  color: white;
+}
+.deletefromwlbutton{
+  cursor: pointer;
+  background: #ff2400;
+  padding: 10px;
+  color: white;
+}
+.deletefromwlbutton:hover{
+  color: black;
+}
+.wllist{
+  margin: 20px;
+  border: 2px solid silver;
+  padding: 10px;
+}
+.wllist h2{
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #02a388;
+}
+.wllist div{
+  margin-left: 50px;
+}
+.wllist div a{
+  font-weight: bold;
+  font-size: 16px;
+}

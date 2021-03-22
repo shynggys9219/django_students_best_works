@@ -1,0 +1,62 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron" style="background-color:#1b0318; color:#CCCCCC;">
+    <h1>KZino - the best online casino. </h1>
+    {% if user.is_authenticated %}
+        <h2  style="color:#ffff00">Hello, {{ user.username }}. Your balance {{ user.initial_balance }} points.</h2>
+    {% else %}
+        <h2>Register or Login if you'd like to</h2>
+    {% endif %}
+  </div>
+
+
+  {% if user.is_authenticated %}
+
+
+
+    <div class="jumbotron" style="background-color:#1b0318; color:#CCCCCC;">
+   <p> <a href="{% url 'Menu:BJstart' %}"> <img src="/static/bj.jpg/ "  width="200" height="200" />  </a>    ᅠᅠᅠᅠᅠ  <a href="{% url 'Menu:WJstart' %}"> <img src="/static/wj1.png/ "  width="200" height="200" />    ᅠᅠᅠᅠᅠ  <a href="{% url 'Menu:PTstart' %}"> <img src="/static/pt.png/ "  width="200" height="200" /> </a></p>
+
+
+
+      <p>        <font size="6" color="yellow" >ᅠBlackJack</font>          <font size="6" color="yellow" >ᅠᅠᅠᅠᅠWhiteJack</font>             <font size="6" color="yellow" >ᅠᅠᅠᅠᅠPatinko</font>              </p>
+        <p><a href="{% url 'Menu:RouletteStart' %}"> <img src="/static/ricon.jpg/ "  width="200" height="200" /> </a>ᅠᅠᅠᅠᅠ<a href="{% url 'Menu:begaSTART1' %}"> <img src="/static/HR.png/ "  width="200" height="200" />  </a>ᅠᅠᅠᅠᅠ<a href="{% url 'Menu:Slots_Start' %}"> <img src="/static/slot_machine.jpg/ "  width="200" height="200" />  </a></p>
+        <p><font size="6" color="yellow" >ᅠRoulette</font>  <font size="6" color="yellow" >ᅠᅠᅠᅠᅠHorse Racing</font> <font size="6" color="yellow" >ᅠᅠᅠᅠSlot Machine</font></p>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+{% else %}
+
+ <div class="jumbotron" style="background-color:#1b0318; color:#CCCCCC;">
+   <p> <a href="{% url 'Menu:user_login' %}"> <img src="/static/bj.jpg/ "  width="200" height="200" />      ᅠᅠᅠᅠᅠ  </a><a href="{% url 'Menu:user_login' %}"> <img src="/static/wj1.png/ "  width="200" height="200" />    ᅠᅠᅠᅠᅠ  <a href="{% url 'Menu:user_login' %}"> <img src="/static/pt.png/ "  width="200" height="200" />
+     </a></p>
+
+
+
+      <p>        <font size="6" color="yellow" >ᅠBlackJack</font>          <font size="6" color="yellow" >ᅠᅠᅠᅠᅠWhiteJack</font>             <font size="6" color="yellow" >ᅠᅠᅠᅠᅠPatinko</font>                               </p>
+     <p><a href="{% url 'Menu:user_login' %}"> <img src="/static/ricon.jpg/ "  width="200" height="200" /> </a>ᅠᅠᅠᅠᅠ <a href="{% url 'Menu:user_login' %}"> <img src="/static/HR.png/ "  width="200" height="200" />  </a> ᅠᅠᅠᅠᅠ<a href="{% url 'Menu:user_login' %}"> <img src="/static/slot_machine.jpg/ "  width="200" height="200" />  </a></p>
+     <font size="6" color="yellow" >ᅠRoulette</font> <font size="6" color="yellow" >ᅠᅠᅠᅠᅠHorse Racing</font> <font size="6" color="yellow" >ᅠᅠᅠᅠSlot Machine</font>
+
+
+
+
+  </div>
+
+
+{% endif %}
+
+
+
+
+
+{% endblock %}</div>

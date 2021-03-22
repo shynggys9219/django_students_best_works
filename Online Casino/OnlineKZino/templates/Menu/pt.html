@@ -1,0 +1,63 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+<style>
+            body{background-image:url(/static/os.png)
+
+
+
+            }
+
+
+
+
+
+        </style>
+<style>
+p{
+font: 70px Tahoma;
+color: orange;
+text-shadow: #000 2px 0px 2px, #000 0px 2px 2px, #000 0px -2px 2px, #000 -2px 0px 2px;}</style>
+<div class="container">
+  <div class="jumbotron" style="background-color:#1b0318; background-image:url(/static/pw.png); color:#CCCCCC;">
+
+
+   <form enctype="multipart/form-data" method="POST" >
+
+ {% csrf_token %}
+
+
+ {% csrf_token %}
+     <font size="15"    color="Black"> <h4 >                        <input type="submit" name="st11" value="1" style = "background-color:#ff7e00; border-radius:50px; border-color:#000000; width:50px; height:50px; " >      <input type="submit" name="st22" value="2" style = "background-color:#ff7e00; border-radius:50px; border-color:#000000; width:50px; height:50px; ">      <input type="submit" name="st33" value="3" style = "background-color:#ff7e00; border-radius:50px; border-color:#000000; width:50px; height:50px; ">
+          <input type="submit" name="st44" value="4" style = "background-color:#ff7e00; border-radius:50px; border-color:#000000; width:50px; height:50px; ">
+          <input type="submit" name="st55" value="5" style = "background-color:#ff7e00; border-radius:50px; border-color:#000000; width:50px; height:50px; ">
+          <input type="submit" name="st66" value="6" style = "background-color:#ff7e00; border-radius:50px; border-color:#000000; width:50px; height:50px; ">
+
+    </h4>    </font>
+
+
+        </form>
+
+
+
+<audio src="punch.mp3" autoplay="autoplay"></audio>
+
+
+
+
+<h4 align="center"><img src="/static/defa1.png/ "  width="700" height="700" /> </h4>
+
+
+     <p align="center"> Your balance: {{user.initial_balance}} points. You can afford: {{tries}} tries.</p>
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+{% endblock %}

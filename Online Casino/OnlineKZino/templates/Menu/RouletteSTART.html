@@ -1,0 +1,23 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron" style="background-color:#1b0318; color:#CCCCCC;">
+
+      <p align="center"><font size="9" color="yellow" face="Arial" >Roulette </font></p>
+      <p> Roulette is a casino game in which players may choose to place bets on either a single number, various groupings of numbers, the colors red or black, whether the number is odd or even, or if the numbers are high (19–36) or low (1–18).</p>
+      <p> Spin - spin the roulette wheel.</p>
+      <p> Clear - delete all your bets.</p>
+      <p> Double - double your bets. </p>
+
+<p> Your balance: {{user.initial_balance}} points</p>
+      <form enctype="multipart/form-data" method="POST" >
+          {% csrf_token %}
+            <p> Your bet: {{ bet_form.bet }} </p>
+
+    <font size="15"    color="Black"> <h4 align="center"> <input type="submit" name="runRoulette" value="START" style = "background-color:#8600ac; border-radius:50px; border-color:#ac00dd; width:100px; height:50px;"> </h4>    </font>
+
+        </form>
+
+  </div>
+</div>
+{% endblock %}

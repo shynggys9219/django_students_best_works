@@ -1,0 +1,36 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+
+
+
+
+<div class="container">
+  <div class="jumbotron" style="background-color:#1b0318; color:#CCCCCC;">
+      <h1 align="center"><font size="15" color="yellow" face="Arial" >TOP of USERS </font></h1>
+
+<ol type="1">
+
+
+
+
+
+{% for users in users_list %}
+ <font size="6"   face="Arial" >
+ <li>
+    {% if user.username == users.username %}
+          <font size="6"   color="yellow" >
+ {{ users.username }}  with    {{ users.initial_balance }} points. It's you.
+               </font>
+          {% else %}
+            <a href="{{users.id}} ">
+ {{ users.username }} </a> with    {{ users.initial_balance }} points.
+          {% endif %}
+
+</li>
+{% endfor %}
+ </font>
+</ol>
+
+  </div>
+</div>
+{% endblock %}

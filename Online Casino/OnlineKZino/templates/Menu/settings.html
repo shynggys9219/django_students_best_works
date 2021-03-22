@@ -1,0 +1,23 @@
+{% extends "Menu/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron " style="background-color:#1b0318; color:#CCCCCC;">
+
+        <h1>Change something if you want.</h1>
+
+<form enctype="multipart/form-data" method="POST"   >
+          {% csrf_token %}
+          {{ user_form.as_p }}
+
+
+
+<input type="submit" value="Submit"  style = "background-color:#8600ac; border-radius:50px; border-color:#ac00dd; width:100px; height:50px;">
+
+
+        </form>
+
+
+    </div>
+  </div>
+{% endblock %}

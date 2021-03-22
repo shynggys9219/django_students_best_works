@@ -1,0 +1,52 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron" style="background-color:#1b0318; color:#CCCCCC;">
+
+
+<p align="center"><font size="9" color="yellow" face="Arial" >Patinko </font></p>
+      <p> Patinko is a game where your ball must hit a hole with a win.</p>
+<p> You can start the ball from 6 various positions.</p>
+      <p> Cost of the one try is 2000 points .</p>
+<p> You can win 500, 3000, 1000 , 750 , 6000 , 100 or the main prize 24000.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<p> Your balance: {{user.initial_balance}} points</p>
+<p> You can afford: {{tries}} tries</p>
+
+
+
+
+      <form enctype="multipart/form-data" method="POST" >
+          {% csrf_token %}
+
+
+
+
+
+
+
+    <font size="15"    color="Black"> <h4 align="center"> <input type="submit" name="" value="START"  style = "background-color:#8600ac; border-radius:50px; border-color:#ac00dd; width:100px; height:50px;"> </h4>    </font>
+
+
+
+        </form>
+
+
+
+
+
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,68 @@
+1{% extends 'myFirstApp/index.html' %}
+
+
+{% block body_block %}
+    <br><br><br><br>
+    <div class="container">
+        <img src="{{dic.question.user.avatar.url}}" width="25" height="25" alt="" class="round">   {{dic.question.user.username}}
+        <div class= "col">
+            <div class="row justify-content-end">
+                <p><font size = "2">{{dic.question.date}}</font></p>
+            </div>
+        </div>
+        <h1>{{dic.question.title}}</h1>
+  
+        <table class=" table table-striped table-dark" >
+  <thead>
+    <tr>
+       <th scope="col"> <font size="3" width="50"  face="Arial">{{dic.question.text}}</font></th>
+        </tr>
+        </thead>
+        </table>
+        </div>
+       
+
+        <div class="container">
+    <div class ="row justify-content-md-center">
+        <form class="" action="{% url 'addAnswer' dic.question.id %}" method="post">
+            {% csrf_token %}
+            <textarea name="text" rows="10" cols="90" placeholder="Input your answer here " onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}"></textarea>
+            <input type="hidden" name="username" value="{{user.username}}">
+            <br>
+            <div class ="row justify-content-md-center">
+            <br><br><input type="submit" name="" value="Send">
+            <br><br><br>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="container">
+
+        {% for i in dic.answers %}
+        <table class="table table-striped table-dark">
+            <thead>
+            <tr>
+                <th scope="col">
+                    <div class="row">
+                        <div class= "col">
+                        <img src="{{i.author.avatar.url}}" width="25" height="25" alt="" class="round">  {{i.author.username}}
+                        <p><font size = "2">{{i.date}} </font> </p>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <th scope="row">
+                    <p>{{i.text}}</p>    
+                </th>
+            </tr>
+            </tbody>
+        </table>
+        {% endfor %}
+        <br><br><br><br><br>
+    </div>
+   
+{% endblock  %}

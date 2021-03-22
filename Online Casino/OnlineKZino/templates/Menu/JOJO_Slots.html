@@ -1,0 +1,48 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron" style="background-color:#1b0318; color:#CCCCCC;">
+
+<title>JOJO's Bizarre Slot Machine</title>
+<p align="center"><font size="9" color="yellow" face="Arial" >Slots </font></p>
+      <p> Cost of the one try is 1000 points</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<p> Your balance: {{user.initial_balance}} points</p>
+
+
+
+
+      <form enctype="multipart/form-data" method="POST" >
+          {% csrf_token %}
+
+
+
+
+
+
+
+    <font size="15"    color="Black"> <h4 align="center"> <input type="submit" name="" value="START" > </h4>    </font>
+
+
+
+        </form>
+
+
+
+
+
+
+  </div>
+</div>
+{% endblock %}

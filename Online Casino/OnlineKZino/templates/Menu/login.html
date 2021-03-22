@@ -1,0 +1,22 @@
+{% extends "Menu/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron " style="background-color:#1b0318; color:#CCCCCC;">
+        {% if msg %}
+         <h1>Invalid login or password!</h1>
+
+        {% else %}
+        <h1>Log in Here</h1>
+
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ user_form.as_p }}
+
+        <font color="black">  <input type="submit" name="" value="Log in"  style = "background-color:#8600ac; border-radius:50px; border-color:#ac00dd; width:100px; height:50px;" > </font>
+        </form>
+
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

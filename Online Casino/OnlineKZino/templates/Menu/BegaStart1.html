@@ -1,0 +1,54 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron" style="background-color:#1b0318; color:#CCCCCC;">
+
+
+<p align="center"><font size="9" color="yellow" face="Arial" > Horse Racing </font></p>
+      <p> Horse Racing is a betting game where you need to bet on a horse at the racing.</p>
+       <p> Every horse have different speeds and all horses may stumble and die.</p>
+
+<p> You can bet on 1-5 horses and you can bet that all horses will die or survive.</p>
+
+<p> If you bet on horse and it wins coefficient will be X5.</p>
+<p> If you bet that all horses wil die and you win coefficient will be X10.</p>
+<p> If you bet that all horses wil survive and you win coefficient will be X2.</p>
+
+
+
+
+
+
+
+
+
+
+<p> Your balance: {{user.initial_balance}} points</p>
+
+
+
+
+
+      <form enctype="multipart/form-data" method="POST" >
+          {% csrf_token %}
+
+
+
+
+
+
+
+    <font size="15"    color="Black"> <h4 align="center"> <input type="submit" name="" value="START"  style = "background-color:#8600ac; border-radius:50px; border-color:#ac00dd; width:100px; height:50px;"> </h4>    </font>
+
+
+
+        </form>
+
+
+
+
+
+
+  </div>
+</div>
+{% endblock %}

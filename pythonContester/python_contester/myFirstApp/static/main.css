@@ -1,0 +1,123 @@
+.centred{
+  text-align: center;
+}
+
+#headerwrap{
+  background: url(../static/back.png);
+  text-align: center;
+  min-height: 500px;
+  background-size: 100%;
+}
+
+#headerwrap h1{
+  margin-top: 100px;
+  color: white;
+  font-size:70px;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+#headerwrap h2{
+  color:white;
+  font-size: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.w{
+  padding-top: 35px;
+
+}
+.w h4{
+  font-size: 25px;
+}
+#dg{
+  background: #e0e0e0;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  text-align: center;
+}
+#dg h4{
+  font-size: 40px;
+}
+
+
+.tilt:hover{
+  -webkit-transform: rotate(-10deg);
+  -moz-transform: rotate(-10deg);
+  -o-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}
+
+#lg{
+  background: #ebebeb;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  text-align: center;
+}
+#lg h4{
+  font-size: 45px;
+}
+#lg h5{
+  font-size: 35px;
+}
+
+#r{
+  background: linear-gradient(to top ,#000000, #172E34,#155768,#13748D, #7FC5D5,#ABC9D0,#DFE8EA);
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+.tilt2:hover{
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+#r h4{
+  color:white;
+  font-size: 45px;
+
+}
+#r p{
+  color: white;
+}
+#f{
+
+  background: #000000;
+  
+  
+
+}
+#f i{
+  color: #bdbdbd;
+  font-size: 30px;
+  padding: 20px;
+  
+}
+#f i:hover{
+  color:#ff7878;
+}
+
+#fr{
+                background: #ebebeb;
+          }
+          #fr a:hover{
+            color: red;
+          }
+
+         .round {
+            border-radius: 100px;
+            box-shadow: 0 0 7px #666;
+         }
+         #gr button:hover{
+            color:green;
+         }
+#news img{
+  border-radius: 5px;
+}
+
+
+/*  */
+/*  */
+/*  */

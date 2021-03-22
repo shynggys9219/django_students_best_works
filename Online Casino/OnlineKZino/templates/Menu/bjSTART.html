@@ -1,0 +1,65 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron" style="background-color:#1b0318; color:#CCCCCC;">
+
+      {% if WJ %}
+      <p align="center"><font size="9" color="yellow" face="Arial" >WhiteJack </font></p>
+      <p> Whitejack is a game where you need to beat the dealer, your points should be more than the dealer but not more than 21.</p>
+      <p>It's same as BlackJack, but you can't bet more than 20 % of your balance</p>
+
+
+      <p> Hit - take an additional card.</p>
+      <p> Stand - keep your combination and move the dealer</p>
+      <p> Double down - double the bet, after that you can HIT only 1 time. </p>
+
+      {% else %}
+      <p align="center"><font size="9" color="yellow" face="Arial" >BlackJack </font></p>
+      <p> Blackjack is a game where you need to beat the dealer, your points should be more than the dealer but not more than 21.</p>
+      <p> Hit - take an additional card.</p>
+      <p> Stand - keep your combination and move the dealer</p>
+      <p> Double down - double the bet, after that you can HIT only 1 time. </p>
+      {% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p> Enter your bet please</p>
+<p> Your balance: {{user.initial_balance}} points</p>
+
+
+
+
+      <form enctype="multipart/form-data" method="POST" >
+          {% csrf_token %}
+
+          <p> Your bet: {{ bet_form.bet }} </p>
+
+
+
+
+
+    <font size="15"    color="Black"> <h4 align="center"> <input type="submit" name="" value="START" style = "background-color:#8600ac; border-radius:50px; border-color:#ac00dd; width:100px; height:50px;"> </h4>    </font>
+
+
+
+        </form>
+
+
+
+
+
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron" style="background-color:#00351e; background-image:url(/static/gg1.png); color:#CCCCCC;">
+
+
+     {% if WJ%}
+ <p align="center"><font size="9" color="yellow" face="Arial" >WhiteJack </font></p>
+      <style>
+            body{background-image:url(/static/wf.png)}
+        </style>
+
+      {% else %}
+      <p align="center"><font size="9" color="yellow" face="Arial" >BlackJack </font></p>
+ <style>
+            body{background-image:url(/static/b123.png)}
+        </style>
+
+       {% endif %}
+
+
+
+      {% if started %}
+
+
+<p align="center"><font size="5" color="yellow" face="Arial" >Dealer's hand </font></p>
+
+
+
+ <p>
+
+ <font size="6"   face="Arial" >
+
+
+
+	<img src="{{dealer_hand.0.foto.url}} "  width="130" height="211"/>
+
+
+
+
+     <img src="/static/def.png" width="130" height="205" />
+
+
+
+
+
+
+
+
+ </font>
+
+
+</p>
+
+
+      <p>
+<p align="center"><font size="5" color="yellow" face="Arial" >Your hand </font></p>
+
+
+
+
+
+    <img src="{{player_hand.0.foto.url}} " width="130" height="211" />
+    <img src="{{player_hand.1.foto.url}} " width="130" height="211" />
+ {% if player_hand.2.mast %}
+           <img src="{{player_hand.2.foto.url}} " width="130" height="211" />
+{% endif %}
+{% if player_hand.3.mast %}
+            <img src="{{player_hand.3.foto.url}} " width="130" height="211" />
+{% endif %}
+          {% if player_hand.4.mast %}
+            <img src="{{player_hand.4.foto.url}} " width="130" height="211" />
+{% endif %}
+{% if player_hand.5.mast %}
+            <img src="{{player_hand.5.foto.url}} " width="130" height="211" />
+{% endif %}
+      {% if player_hand.6.mast %}
+            <img src="{{player_hand.6.foto.url}} " width="130" height="211" />
+{% endif %}
+      {% if player_hand.7.mast %}
+            <img src="{{player_hand.7.foto.url}} " width="130" height="211" />
+{% endif %}
+
+
+
+
+
+</p>
+
+ <p>
+<font size="6"   color="white" >
+   <form method="post">
+    {% csrf_token %}
+    <button type="submit" name="run_script" style = "background-color:black; border-radius:50px; border-color:white; width:60px; height:50px; "> Hit </button>  ᅠᅠ       <button type="submit" name="stand" style = "background-color:black; border-radius:50px; border-color:white; width:100px; height:50px;">Stand </button>   ᅠᅠ
+
+       {% if not dd %}
+       {% if not bandd %}
+       <button type="submit" name="dd" style = "background-color:black; border-radius:50px; border-color:white; width:210px; height:50px;">Double down </button>
+       {% endif %}
+       {% endif %}
+</form>
+
+
+
+</font  >
+</p>
+
+
+
+
+      {% else %}
+      <p>  Start game from main page of site by clicking on the BlackJack icon</p>
+
+      <font size="6"   color="black" >
+      <form action="/">
+    {% csrf_token %}
+    <button type="submit" name="OK">OK</button>
+</form>
+</font >
+
+
+   {% endif %}
+
+
+  </div>
+</div>
+{% endblock %}

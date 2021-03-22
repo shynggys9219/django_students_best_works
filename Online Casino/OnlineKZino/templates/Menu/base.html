@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<style>
+   .border1 {
+    border: 2px solid #00af64;
+   }
+   .navbar{
+    height: 67px !important;
+
+}
+  </style>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>KZino - the best online casino</title>
+
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+ <style>
+            body{background-image:url(/static/b1.jpg)}
+        </style>
+
+  </head>
+
+  <body>
+  {% if user.is_banned %}
+
+  {% else %}
+   <nav class="navbar navbar-default navbar-static-top" style="background-color:#1b0318; color:#CCCCCC;">
+      <div class="container">
+        <ul class="nav navbar-nav" style="background-color:#1b0318; color:#CCCCCC;">
+{# Django Home Link / Admin Link / Register Link#}
+
+          <li><a class="navbar-brand" style="color:#CCCCCC;" href="{% url 'index' %}">KZino</a></li>
+          <li><a class="navbar-link"style="color:#CCCCCC;" href="{% url 'admin:index' %}">Admin</a></li>
+          <li><a class="navbar-link"style="color:#CCCCCC;" href="{% url 'Menu:register' %}">Register</a></li>
+
+
+
+          {# Some logic on what to display for last item#}
+
+
+
+
+
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}" style="color:#CCCCCC;">Logout</a></li>
+          {% else %}
+            <li><a class="navbar-link"style="color:#CCCCCC;" href="{% url 'Menu:user_login' %}">Login</a></li>
+          {% endif %}
+            <li><a class="navbar-link"style="color:#CCCCCC;" href="{% url 'Menu:TopU' %}"> Top of users </a></li>
+             <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+             <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+            <li><a class="navbar-link"style="color:#CCCCCC;">  </a></li>
+
+
+
+
+            {% if user.is_authenticated %}
+            <li><a class="navbar-link"style="color:#CCCCCC;" href="{% url 'Menu:Cabinet' %}">  {{user.username}} <img src="{{user.profile_pic.url}} " width="35" height="35" class="border1" /> </a>
+
+
+   </li>
+
+            {% endif %}
+{% endif %}
+</ul>
+      </div>
+    </nav>
+    <div class="container">
+    {% block body_block %}
+
+
+
+    {% endblock %}
+
+
+
+    </div>
+  </body>
+</html>

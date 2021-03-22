@@ -1,0 +1,177 @@
+
+{% extends 'myFirstApp/index.html' %}
+
+{% block body_block %}
+
+
+{% comment %} background {% endcomment %}
+<div id="headerwrap" xmlns="http://www.w3.org/1999/html">
+    <div class="container">
+      <div class="row justify-content-md-center">
+      <div class="col-lg-8 col-lg-offset-2">
+          <h1>Python Contester </h1>
+          <h2>Contester with me </h2>
+        </div>
+      </div>
+      </div>
+    </div>
+
+{% comment %} word {% endcomment %}
+<div class="container w">
+  <div class="row centred">
+
+
+    
+<div class="col-lg-4">
+
+      <i class="fa fa-trophy"></i>
+
+      <h4>About Project Euler</h4>
+      <p>Project Euler is a series of challenging mathematical/computer
+           programming problems that will require more than just mathematical
+           insights to solve. Although mathematics will help you arrive at
+           elegant and efficient methods, the use of a computer and programming
+            skills will be required to solve most problems.
+      </p>
+</div>
+
+
+<div class="col-lg-4">
+      <i class="fa fa-trophy"></i>
+
+      <h4>Who are the problems aimed at?</h4>
+      <p>The intended audience include students for whom the basic curriculum 
+      is not feeding their hunger to learn, adults whose background was not 
+      primarily mathematics but had an interest in things mathematical, and professionals
+       who want to keep their problem solving and mathematics on the cutting edge.
+      </p>
+</div>
+
+<div class="col-lg-4">
+      <i class="fa fa-trophy"></i>
+      <h4>Can anyone solve the problems?</h4>
+      <p>The problems range in difficulty and for many the experience is inductive chain learning.
+       That is, by solving one problem it will expose you to a new concept that allows you
+        to undertake a previously inaccessible problem. So the determined participant will slowly
+         but surely work his/her way through every problem.
+      </p>
+</div>
+
+    <br><br>
+  </div>
+</div>
+
+
+{% comment %} NEWS {% endcomment %}
+{% comment %} <img src = "static/news.png" width="300" height="400"alt =""> {% endcomment %}
+<br><br>
+<div id= "dg">
+  <center><h4>Latest it news</h4></center><br>
+    <div class="container">
+      <a name="popular"></a>
+        <div class="row justify-content-md-center">
+
+{% for new in dic.news %}
+<div class="col-sm">
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-link" data-toggle="modal" data-target="#{{new.id}}">
+ <div id ="news">
+  <img src = "{{new.news_img.url}}" width="300" height="400"alt ="">
+  </div>
+</button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id={{ new.id }} tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{new.title}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        {{new.text}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+
+
+
+
+    </div>    
+  </div>
+</div>
+
+
+
+{% comment %} Popular Tasks {% endcomment %}
+<div id="lg"> 
+<br><br>
+   <center> <h4>{{ dic.title }}</h4></center>
+    <br>
+    
+    <div class="container">
+        <div class="row justify-content-md-center">
+
+        <br><br>
+
+    {% for i in dic.task %}
+        <div class="tilt2">
+            <div class="col-lg-10 col-lg-offset-4">
+                <a href={%url 'currentTask' i.id%}><img src="{{ i.task_img.url }}" width="180" height="180" alt=""> </a>
+                <p>{{ i.task_name }} </p>
+            </div>
+        </div> 
+    {% endfor %}
+
+       
+        </div>
+    </div>
+    <br><br><br>
+   <center> <a href={% url 'moreProblems' %} >  <button type="button" class="btn btn-dark center">More problems </button></a></center>
+    <br><br>
+  </div>
+
+{% comment %} Statistics {% endcomment %}
+ 
+      <div id ="r">
+
+    <div class="container">
+      <div class="row justify-content-md-center">
+
+        <div class="col-lg-8 col-lg-offset-2">
+          <h4><center>Statistics</cenet> </h4>
+        <div class="row">
+
+    <div class="col-sm">
+
+     <p>  <font size="10" face="Wide latin"> {{ dic.countTask }}</font>
+           <font size="5" face="Wide latin">Tasks</font></p>
+    </div>
+    <div class="col-sm">
+    <p>
+  <font size="10" face="Wide latin">{{dic.countSolved}}</font>
+            <font size="5" face="Wide latin">Times solved</font></p>
+    </div>
+    <div class="col-sm">
+    <p>
+    <font size="5" face="Wide latin"> by </font> <font size="10" face="Wide latin">{{ dic.countUser}} </font><font size="5" face="Wide latin">Users</font> </p>
+    </div>
+      </div>
+     
+
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+{% endblock  %}

@@ -1,0 +1,29 @@
+{% extends "Menu/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+  <div class="container">
+    <div class="jumbotron" style="background-color:#1b0318; color:#CCCCCC;">
+      {% if registered %}
+        <h1>Thank you for registering!</h1>
+
+      {% else %}
+        <h1>Register Here</h1>
+        <h3>Just fill out the form.</h3>
+        <font size="5"   face="Arial" >
+<form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+    <table>
+        <tr> <td> <font color="Black">{{ user_form.as_table }}</font> </td></tr>
+ </table>
+
+    After registration you will get 50000 points.
+    <font size="15"    color="Black"> <h4 align="center"> <input type="submit" name="" value="Register"  style = "background-color:#8600ac; border-radius:50px; border-color:#ac00dd; width:100px; height:50px;"> </h4>    </font>
+
+
+
+        </form>
+       </font>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

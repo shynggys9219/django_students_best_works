@@ -1,0 +1,47 @@
+{% extends "Menu/base.html" %}
+{% block body_block %}
+<style type="text/css">
+            body{background-image:url(/static/grass.png)}
+
+        </style>
+
+
+
+<div class="container">
+  <div class="jumbotron" style="background-color:#1b0318; background-image:url(/static/road66.jpg); color:#CCCCCC;">
+ <p>1<img   src="/static/stand.png" width="100" height="100"> </p>
+<p>2<img   src="/static/stand.png" width="100" height="100"> </p>
+  <p>3<img   src="/static/stand.png" width="100" height="100" ></p>
+      <p>4<img   src="/static/stand.png" width="100" height="100"> </p>
+<p>5<img   src="/static/stand.png" width="100" height="100"> </p>
+
+  </div>
+<div class="jumbotron" style="background-color:green; background-image:url(/static/gg12.png);" >
+      <form enctype="multipart/form-data" method="POST"   >
+          {% csrf_token %}
+
+
+<h4 align="center"><font  color="black" >ᅠ{{ bet_form.as_p }}</font  >ᅠ</h4>
+ <font  color="white" >ᅠ
+     <h4 align="center">
+<input type="submit" name="bet1" value="Bet on horse #1" style = "background-color:#814200; border-radius:50px; border-color:#00540e; width:150px; height:50px;"  >
+ <input type="submit" name="bet2" value="Bet on horse #2"  style = "background-color:#814200; border-radius:50px; border-color:#00540e; width:150px; height:50px;" >
+          <input type="submit" name="bet3" value="Bet on horse #3"  style = "background-color:#814200; border-radius:50px; border-color:#00540e; width:150px; height:50px;" >
+          <input type="submit" name="bet4" value="Bet on horse #4"  style = "background-color:#814200; border-radius:50px; border-color:#00540e; width:150px; height:50px;" >
+          <input type="submit" name="bet5" value="Bet on horse #5" style = "background-color:#814200; border-radius:50px; border-color:#00540e; width:150px; height:50px;"  >
+       </h4>
+<h4 align="center"><input type="submit" name="betAD" value="Bet that all horses will die"  style = "background-color:#814200; border-radius:50px; border-color:#00540e; width:250px; height:50px;" >
+    <input type="submit" name="betAA" value="Bet that all horses will survive" style = "background-color:#814200; border-radius:50px; border-color:#00540e; width:250px; height:50px;"  ></h4>
+</font>
+        </form>
+
+
+  </div>
+
+
+
+
+
+</div>
+
+{% endblock %}
